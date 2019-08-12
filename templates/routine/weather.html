@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+    <style>
+        body{
+            margin: 0;
+            background-color:azure;
+        }
+        button{
+            width: 150px;
+            height: 30px;
+            position: absolute;
+        }
+        #hx{
+            display: flex;
+            margin-top: 50px;
+            margin-left: 80px;        }
+        #bk{
+            width: 200px;
+            height: 300px;
+{#            border: 3px solid rgba(163,168,171,0.2);#}
+            margin-left: 50px;
+            background-color: rgba(0,191,255,0.2);
+            box-shadow: silver 10px 10px 5px;
+
+        }
+        #bk ul{
+            margin-top: 15px;
+        }
+        .bk{
+            margin-top: 80px;
+            width:400px;
+            background-color: lightskyblue;
+            box-shadow: silver 5px 5px 3px;
+
+        }
+        ul{
+             list-style: none;
+            margin: auto;
+        }
+        #bg{
+            width: 100%;
+            height:550px;
+            background-image: url({% static "背景.jpg" %});
+        }
+        #a2{
+            border: 5px solid cyan;
+            width:250px;
+            height: 350px;
+            margin-top: -20px;
+        }
+        #aaa{
+            height: 100px;
+            margin-left:700px;
+        }
+        #header{
+            color:black;
+            margin: auto;
+            font-size: 45px;
+        }
+        #head{
+            color:azure;
+            margin-left: 35px;
+        }
+        .a1{
+            margin-left: 40px;
+        }
+        .tem1{;
+            font-size: 30px;
+            color: black;
+            margin-top:25px;
+        }
+        #teml{
+            color: white;
+            margin-left: 35px;
+        }
+        #tq{
+            width: 50px;
+            height: 50px;
+            margin-left: 35px;
+        }
+        .tp{
+            margin-top: 20px;
+        }
+        #dq{
+            display: flex;
+        }
+        #wea{
+            margin-top:-8px;
+            color: white;
+        }
+        #wea1{
+            color:black;
+            margin-top: -25px;
+            margin-left: 70px;
+            font-size: 18px;
+        }
+        #win{
+            margin-top:-40px;
+            margin-left:50px;
+            color: white;
+        }
+        .wea1{
+            color: white;
+            margin-left: 50px;
+        }
+        #air_tips{
+            width:180px;
+{#            border:1px solid red;#}
+            margin-top: -10px;
+            color: yellow;
+            margin-left: 35px;
+          }
+        .win2{
+            color: black;
+{#            margin-left:10px;#}
+            margin-top: 50px;
+        }
+        #ss{
+            display: flex;
+{#            border: 1px solid red;#}
+            margin-left: 30px;
+
+        }
+        #ssbb {
+            width: 250px;
+            height: 50px;
+            font-size: 40px;
+            margin-top: -30px;
+            color: white;
+            position: relative;
+            margin-left: 15px;
+        }
+        #aa{
+            width: 900px;
+            display: flex;
+            margin-left: 350px;
+            margin-top: 20px;
+            position: absolute;
+        }
+        #ul li p{
+            color:azure;
+        }
+        #wl{
+            margin-top:50px;
+            font-size:35px;
+            margin-left: 30px;
+        }
+        #tb{
+            width:700px;
+            height: 500px;
+            border: 1px solid red;
+            margin-left: 780px;
+            margin-top: -80px;
+        }
+        #xtb{
+            width: 50px;
+            height: 50px;
+{#            margin-left:20px;#}
+        }
+    </style>
+</head>
+<body>
+    {% load staticfiles %}
+    <div>
+        <div id="bg">
+        <button> <a href="/routine/index/" style="text-decoration: none">回到首页</a></button>
+            <div id="aaa"><p id="header">山西-太原-{{ city}}-天气预报</p></div>
+        <div id="ss">
+            <div id="a2">
+                <div id="head">{{ date }}&nbsp&nbsp&nbsp{{ week }}</div>
+                <div class="a1"><img src="/static/{{ wea }}.png" id="tq"></div>
+                <div id="dq" >
+                    <div>
+                        <p class="tem1"  id="teml">{{tem1 }}</p>
+                    </div>
+                    <div id="wea">
+                        <p>{{ wea }}</p>
+                    </div>
+                </div>
+                <div id="win">
+                    <p>风向：{{ win }}</p>
+                </div>
+                <div class="wea1">
+                    <p>{{ wea }}</p>
+                </div>
+                <div class="wea1">
+                    <p>{{ air_level }}</p>
+                </div>
+                <div id="air_tips">
+                    <p>{{ air_tips}}</p>
+                </div>
+            </div>
+        <div id="ssbb"><p>实时播报：</p></div>
+        <div id="aa">
+            {% for a in hours %}
+            <div class="bk">
+                <ul id="ul">
+                    <li style="margin-left:-10px"><p>{{ a.day }}</p></li>
+                    <li><img src="/static/{{ a.wea }}.png" id="xtb"></li>
+                    <li><p>{{ a.tem }}</p></li>
+                    <li><p>{{ a.win }}</p></li>
+                    <li><p>{{ a.win_speed }}</p></li>
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+            <div id="tb"></div>
+        </div>
+        <div id="wl"><p>未来七天天气情况：</p></div>
+        <div id="hx">
+            {% for x in data %}
+            <div id="bk">
+                <ul>
+                    <li>{{ x.date }}&nbsp&nbsp&nbsp{{ x.week }}</li>
+                    <li class="tp"><img src="/static/{{ x.wea }}.png" id="tq"></li>
+                    <li class="tem1">{{x.tem1 }}</li>
+                    <li id="wea1">{{ x.wea }}</li>
+                    <li class="win2">风速：{{ x.win_speed }}</li>
+{#                    <li class="win2">{{ x.wea }}</li>#}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+     <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('tb'));
+
+        // 指定图表的配置项和数据
+        var option = {
+    xAxis: {
+        type: 'category',
+        data: '{{ a.day }}'
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        type: 'line',
+        smooth: true
+    }]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #a1{
+            width: 800px;
+            height:300px;
+            border:1px solid red;
+            font-size: 30px;
+{#            display: none;#}
+        }
+        #aa{
+            width: 400px;
+            margin: 0 auto;
+            margin-top: 250px;
+        }
+        font{
+            font-size: 30px;
+        }
+        .b{
+            width: 300px;
+            height: 50px;
+            font-size: 30px;
+            margin-left: 230px;
+            margin-top: -100px;
+        }
+        .tj{
+            width: 200px;
+            height: 80px;
+            font-size: 30px;
+        }
+        #img{
+            position: absolute;
+            margin-top: -50px;
+        }
+        p{
+            width: 80px;
+            height: 30px;
+            border: 1px solid  red;
+        }
+
+    </style>
+</head>
+<body>
+{% load staticfiles %}
+<div id="img"><img src="{% static 'bmi.jpg' %}"><p>严重肥胖&nbsp&nbsp&nbsp&nbsp&nbsp</p></div>
+    <div id="aa">
+        <form action='/routine/bmi/' method="post">
+            {% csrf_token %}
+            <div>
+                 <font>请输入您的身高：</font><input type="text" name="text" placeholder="m" class="b">
+            </div>
+           <div>
+               <font>请输入您的吨位：</font><input type="text" name="kg" placeholder="kg" class="b">
+           </div>
+            <input type="submit" value="提交检测" class="tj">
+            <div>
+                <button class="tj"> <a href="/routine/index/" style="text-decoration: none">回到首页</a></button>
+            </div>
+            <div>
+                <h2>计算结果为：</h2>
+            </div>
+            <div>
+                <input type="text" id="a1" value="{{ mess}}" >
+            </div>
+        </form>
+    </div>
+{#    <script>#}
+{#        tj =document.getElementById('tj')#}
+{#        zs =document.getElementById('a1')#}
+{#        tj.onclick=li#}
+{#        function li() {#}
+{#            if( zs.style.display ='none'){#}
+{#                zs.style.display='block'#}
+{#            }#}
+{##}
+{#        }#}
+{#    </script>#}
+</body>
+</html>

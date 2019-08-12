@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .text{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div >
+        <form action='/routine/jsys/' method="post">
+            {% csrf_token %}
+            <div class="text">
+                <div><textarea rows="30"cols="50"  name="text" placeholder="请输入要压缩的json编码"></textarea></div>
+                <div>
+                    <div>
+                        <input type="submit" value="点击压缩">
+                    </div>
+                    <div>
+                        <button> <a href="/routine/index/" style="text-decoration: none">回到首页</a></button>
+                    </div>
+                </div>
+                <div>
+                        <textarea rows="30"cols="50" placeholder="这边是压缩后的json编码">{{ jsjm}}</textarea>
+                </div>
+            </div>
+        </form>
+        <form action='/routine/jsys2/' method="post">
+            {% csrf_token %}
+            <div class="text">
+                <div><textarea rows="30"cols="50"  name="text" placeholder="请输入要压缩的json编码"></textarea></div>
+                <div>
+                    <div>
+                        <input type="submit" value="压缩转json">
+                    </div>
+                    <div>
+                        <button> <a href="/routine/index/" style="text-decoration: none">回到首页</a></button>
+                    </div>
+                </div>
+                <div>
+                        <textarea rows="30"cols="50" placeholder="这边是压缩后的json编码">{{yszjs}}</textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

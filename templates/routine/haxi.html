@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <title>Title</title>
+    <style>
+        body{
+             background-size: cover;
+            background-image:  url({% static "haxi.jpg" %});
+        }
+        .text{
+            display: flex;
+            width: 1400px;
+            margin: 0 auto;
+            margin-top:80px;
+        }
+        .textarea{
+            background-color: rgba(0, 0, 0, 0);
+            font-size: 30px;
+            border: none;
+            resize: none;
+             width:500px;
+            height:500px;
+            color: red;
+
+        }
+        #textarea{
+            background-color: rgba(0, 0, 0, 0);
+            font-size: 30px;
+            border: none;
+            resize: none;
+            width:500px;
+            height:500px;
+            margin-left: 50px;
+            color: red;
+        }
+        p{
+            font-size: 50px;
+            color: white;
+            margin-left: 700px;
+            margin-top: 200px;
+        }
+        .a1{
+            width: 200px;
+            height: 80px;
+            margin-left: 80px;
+            font-size: 30px;
+        }
+        #a1{
+            width: 200px;
+            background-color:red ;
+            height: 2px;
+            border: 1.5px solid red;
+            margin-top: -513px;
+        }
+        .a2{
+            width:1px;;
+            background-color:red ;
+            height: 200px;
+            border: 1.5px solid red;
+            margin-left: -2px;
+            margin-top: -3px;
+        }
+        #yo{
+            width: 1px;
+            background-color:red ;
+            height: 200px;
+            border: 1.5px solid red;
+            margin-top: 100px;
+            margin-left: 503px;
+        }
+        #yx{
+            width: 200px;
+            background-color:red ;
+            height: 2px;
+            border: 1.5px solid red;
+            margin-top: -2px;
+            margin-left: 303px;
+        }
+         #b1{
+            width: 200px;
+            background-color:red ;
+            height: 2px;
+            border: 1.5px solid red;
+            margin-top: -513px;
+             margin-left: 352px;
+        }
+        .b2{
+            width: 2px;
+            height: 200px;
+            background-color:red ;
+            border: 1.5px solid red;
+            margin-left:553px;
+            margin-top: -3px;
+        }
+        #zo{
+            width: 200px;
+            background-color:red ;
+            height: 2px;
+            border: 1.5px solid red;
+            margin-top: 300px;
+            margin-left: 50px;
+        }
+        #zx{
+            width: 2px;
+            height: 200px;
+            background-color:red;
+            border: 1.5px solid red;
+            margin-top: -200px;
+            margin-left: 48px;
+        }
+    </style>
+</head>
+<body>
+    <p>没有编不了的码，更没解不了的密</p>
+    <div id="a">
+        <form action='/routine/haxi/' method="post">
+            {% csrf_token %}
+            <div class="text">
+                <div><textarea   name="name" placeholder="请输入要加密的明文" class="textarea"></textarea ><div id="a1"></div><div class="a2"></div><div id="yo"></div><div id="yx"></div></div>
+                <div>
+                    <div>
+                        <input type="submit" value="哈希加密" class="a1">
+                    </div>
+                    <div>
+                        <button class="a1"> <a href="/routine/index/" style="text-decoration: none">回到首页</a></button>
+                    </div>
+                </div>
+                <div>
+                        <textarea  placeholder="这边是加密后的编码" id="textarea">{{ hash_name}}</textarea><div id="b1"></div><div class="b2"></div><div id="zo"></div><div id="zx">
+                </div>
+            </div>
+    </div>
+</body>
+</html>

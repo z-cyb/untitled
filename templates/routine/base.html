@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <title>Title</title>
+    <style>
+        body{
+             background-size: cover;
+            background-image:  url({% static "base641.jpg" %});
+        }
+        .text{
+            display: flex;
+            width: 1400px;
+            margin: 0 auto;
+            margin-top:80px;
+        }
+        .textarea{
+            background-color: rgba(0, 0, 0, 0);
+            font-size: 30px;
+            border: none;
+            resize: none;
+             width:500px;
+            height:500px;
+
+        }
+        #textarea{
+            background-color: rgba(0, 0, 0, 0);
+            font-size: 30px;
+            border: none;
+            resize: none;
+            width:500px;
+            height:500px;
+            margin-left: 50px;
+        }
+        p{
+            font-size: 50px;
+            color: white;
+            margin-left: 700px;
+            margin-top: 200px;
+        }
+        .a1{
+            width: 200px;
+            height: 80px;
+            margin-left: 80px;
+            font-size: 30px;
+        }
+        #a1{
+            width: 200px;
+            background-color:rgba(151,255,255,0.6) ;
+            height: 2px;
+            border: 1.5px solid rgba(151,255,255,0.6);
+            margin-top: -513px;
+        }
+        .a2{
+            width:1px;;
+            background-color:rgba(151,255,255,0.6) ;
+            height: 200px;
+            border: 1.5px solid rgba(151,255,255,0.6);
+            margin-left: -2px;
+            margin-top: -3px;
+        }
+        #yo{
+            width: 1px;
+            background-color:rgba(151,255,255,0.6) ;
+            height: 200px;
+            border: 1.5px solid rgba(151,255,255,0.6);
+            margin-top: 100px;
+            margin-left: 503px;
+        }
+        #yx{
+            width: 200px;
+            background-color:rgba(151,255,255,0.6) ;
+            height: 2px;
+            border: 1.5px solid rgba(151,255,255,0.6);
+            margin-top: -2px;
+            margin-left: 303px;
+        }
+         #b1{
+            width: 200px;
+            background-color:rgba(151,255,255,0.6) ;
+            height: 2px;
+            border: 1.5px solid rgba(151,255,255,0.6);
+            margin-top: -513px;
+             margin-left: 352px;
+        }
+        .b2{
+            width: 2px;
+            height: 200px;
+            background-color:rgba(151,255,255,0.6) ;
+            border: 1.5px solid rgba(151,255,255,0.6);
+            margin-left:553px;
+            margin-top: -3px;
+        }
+        #zo{
+            width: 200px;
+            background-color:rgba(151,255,255,0.6) ;
+            height: 2px;
+            border: 1.5px solid rgba(151,255,255,0.6);
+            margin-top: 300px;
+            margin-left: 50px;
+        }
+        #zx{
+            width: 2px;
+            height: 200px;
+            background-color:rgba(151,255,255,0.6) ;
+            border: 1.5px solid rgba(151,255,255,0.6);
+            margin-top: -200px;
+            margin-left: 48px;
+        }
+    </style>
+</head>
+<body>
+<p>没有编不了的码，更没解不了的密</p>
+    <div id="a">
+        <form action='/routine/base/' method="post">
+            {% csrf_token %}
+            <div class="text">
+                <div><textarea   name="name" placeholder="请输入要编码的明文"  class="textarea">{{ b64_content_js }}</textarea><div id="a1"></div><div class="a2"></div><div id="yo"></div><div id="yx"></div></div>
+                <div>
+                    <div>
+                        <input type="submit" value="base64编码" class="a1">
+                        <input type="submit" value="base64解码" class="a1">
+                    </div>
+                    <div>
+                        <button class="a1"> <a href="/routine/index/" style="text-decoration: none;">回到首页</a></button>
+                    </div>
+                </div>
+                <div>
+                        <textarea  placeholder="请输入要解码的编码" name="text" id="textarea">{{ b64_content }}</textarea><div id="b1"></div><div class="b2"></div><div id="zo"></div><div id="zx"></div>
+                </div>
+            </div>
+        </form>
+{#        <form action='/routine/base2/' method="post">#}
+{#            {% csrf_token %}#}
+{#            <div class="text">#}
+{#                <div><textarea rows="30"cols="50"  name="name" placeholder="请输入要解码的编码"></textarea></div>#}
+{#                <div>#}
+{#                    <div>#}
+{#                        <input type="submit" value="base64解码">#}
+{#                    </div>#}
+{#                   <div>#}
+{#                        <button> <a href="/routine/index/" style="text-decoration: none">回到首页</a></button>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div>#}
+{#                        <textarea rows="30"cols="50" placeholder="这边是解密后的明文">{{ b64_content_jm }}</textarea>#}
+{#                </div>#}
+{#            </div>#}
+{#        </form>#}
+    </div>
+</body>
+</html>
